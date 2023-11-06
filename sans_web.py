@@ -38,6 +38,7 @@ async def handle_message(reader, writer):
                 dev_add = next(iter(bluetooth_devices.all))
             else:
                 # There's not a bluetooth device registered, so look in bluetoothctl
+                # though this might not fully work
                 out = subprocess.Popen([ "/usr/bin/bluetoothctl", "devices"], universal_newlines=True, shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 # ends up with a double-nested list here, grab the first item — this might also be fragile
                 MAC_addy = [ re.findall("(?:[0-9a-fA-F]:?){12}", x) for x in out.stdout.readlines()]

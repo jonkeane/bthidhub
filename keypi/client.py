@@ -7,6 +7,7 @@ from time import sleep
 
 import asyncio
 
+# TODO: connect once and send multiple instead of connecting each time?
 async def tcp_echo_client(message):
     reader, writer = await asyncio.open_connection('127.0.0.1', 8888)
     try:
@@ -67,15 +68,12 @@ class Kbrd:
         return struct.pack("B"*len(keys), *keys)
 
     def send_keys(self):
-        print("Sending: " + str(self.state))
         asyncio.run(tcp_echo_client(self.state))
 
     def send_connect(self):
-        print("Sending: CONNECT")
         asyncio.run(tcp_echo_client("CONNECT"))
 
     def send_browser(self):
-        print("Sending: BROWSER")
         asyncio.run(tcp_echo_client("BROWSER"))
 
     def custom_input(self):
