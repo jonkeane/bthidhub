@@ -31,3 +31,9 @@ def input_custom():
     """Send custom input to the device"""
     kb = clnt.Kbrd()
     kb.custom_input()
+
+@keypi.group()
+def connect():
+    """keypi client for accepting input"""
+    kb = clnt.Kbrd()
+    kb.send_connect()

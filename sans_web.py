@@ -28,7 +28,10 @@ async def handle_message(reader, writer):
     try:
         message = data.decode()
         if data.decode() == "CONNECT":
-            print("Connectione")
+            if len(bluetooth_devices.connected_hosts) > 0:
+                return "Already connected"
+
+            print("Connecting")
             # get the device path to use
             loop = asyncio.get_event_loop()
             if len(bluetooth_devices.all) > 0:
@@ -68,6 +71,7 @@ async def handle_message(reader, writer):
         elif data.decode() == "BROWSER":
             import pdb; pdb.set_trace()
     except UnicodeDecodeError:
+        # this might be just bytes
         bluetooth_devices.send_message(data, True, False)
 
 async def message_server():
