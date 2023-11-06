@@ -21,7 +21,8 @@ systemctl --user disable obex
 systemctl --user mask obex
 
 sudo apt-get install libcairo2-dev libdbus-1-dev libgirepository1.0-dev libglib2.0-dev libudev-dev libical-dev libreadline-dev autoconf automake libtool python3-pip -y
-sudo pip3 install -r /home/pi/bthidhub/requirements.txt
+# Starting with new OSes, we will get warnings about PEP 668, so add `--break-system-packages` to get around that
+sudo pip3 install --break-system-packages -r /home/pi/bthidhub/requirements.txt
 
 cd /home/pi/bthidhub/install/on_rpi
 git clone https://github.com/Dreamsorcerer/bluez.git
@@ -48,6 +49,10 @@ sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
 sudo systemctl enable keypi.service
 sudo systemctl start keypi.service
+
+# Needed for click this might complain about the private path, but .profile usually has this already
+# though it's conditional, and might need a shell reboot
+pip install --break-system-packages .
 
 # sudo hostnamectl set-hostname bthidhub
 # sudo sed -Ei 's/^127\.0\.1\.1.*$/127.0.1.1\tbthidhub/' /etc/hosts

@@ -17,7 +17,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "keypi=keypi.cli:keypi",
+            "keypi=bthidhub.cli:keypi",
         ],
     },
     classifiers=[
