@@ -83,7 +83,8 @@ async def message_server():
         await server.serve_forever()
 
 if __name__ == "__main__":
-    asyncio.set_event_loop_policy(asyncio_glib.GLibEventLoopPolicy())
+    # with glib, this consumes one core basically constantly. Without it it doesn't
+    # asyncio.set_event_loop_policy(asyncio_glib.GLibEventLoopPolicy())
     loop = asyncio.get_event_loop()
     loop.add_signal_handler(SIGINT, sys.exit)
     bus = SystemMessageBus()
