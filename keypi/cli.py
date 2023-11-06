@@ -32,8 +32,8 @@ def input_custom():
     kb = clnt.Kbrd()
     kb.custom_input()
 
-@keypi.group()
+@keypi.command(name="connect")
 def connect():
-    """keypi client for accepting input"""
+    """Connect to the bluetooth device"""
     kb = clnt.Kbrd()
     kb.send_connect()
