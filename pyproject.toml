@@ -1,5 +1,5 @@
 [project]
-name = "bthidhub"
+name = "keypi"
 version = "0.1"
 description = "KeyPi Keyboard Emulator"
 readme = "README.md"
@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 [project.scripts]
-keypi = "bthidhub.cli:keypi"
+keypi = "keypi.cli:keypi"
 
 [tool.setuptools]
-py-modules = ["web", "stubs"]
+py-modules = ["keypi"]
