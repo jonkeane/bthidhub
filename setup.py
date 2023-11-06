@@ -26,6 +26,4 @@ setuptools.setup(
     ],
     python_requires=">=3.8",
     install_requires=install_requires,
-    maintainer="Jonathan Keane",
-    url="https://github.com/jonkeane/keypi",
 )
