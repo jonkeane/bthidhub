@@ -56,5 +56,3 @@ sudo systemctl start keypi.service
 # We do this at the end, as the project is already usable without this step.
 cd /home/pi/bthidhub/
 mypyc
-
-sudo reboot

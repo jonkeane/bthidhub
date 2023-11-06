@@ -11,3 +11,4 @@ PyGObject
 pyudev
 watchfiles
 click
+mypyc
