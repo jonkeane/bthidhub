@@ -40,17 +40,17 @@ sudo cp /home/pi/bthidhub/install/on_rpi/sdp_record.xml /etc/bluetooth/sdp_recor
 sudo cp /home/pi/bthidhub/install/on_rpi/input.conf /etc/bluetooth/input.conf
 sudo cp /home/pi/bthidhub/install/on_rpi/main.conf /etc/bluetooth/main.conf
 
-sudo cp /home/pi/bthidhub/install/on_rpi/remapper.service /lib/systemd/system/remapper.service
-sudo chmod 644 /lib/systemd/system/remapper.service
+sudo cp /home/pi/bthidhub/install/on_rpi/keypi.service /lib/systemd/system/keypi.service
+sudo chmod 644 /lib/systemd/system/keypi.service
 sudo systemctl daemon-reload
 
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth
-sudo systemctl enable remapper.service
-sudo systemctl start remapper.service
+sudo systemctl enable keypi.service
+sudo systemctl start keypi.service
 
-sudo hostnamectl set-hostname bthidhub
-sudo sed -Ei 's/^127\.0\.1\.1.*$/127.0.1.1\tbthidhub/' /etc/hosts
+# sudo hostnamectl set-hostname bthidhub
+# sudo sed -Ei 's/^127\.0\.1\.1.*$/127.0.1.1\tbthidhub/' /etc/hosts
 
 # Compile some Python modules to reduce lag.
 # We do this at the end, as the project is already usable without this step.
