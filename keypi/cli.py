@@ -2,7 +2,7 @@ import click
 import os
 import sys
 
-from .client import client as clnt
+from . import client as clnt
 
 @click.group()
 def keypi():
