@@ -44,6 +44,7 @@ async def handle_message(reader, writer):
                 dev_add = "/org/bluez/hci0/dev_" + MAC_addy[0][0].replace(":", "_")
 
             # connect
+            print("Trying to connect to: " + dev_add)
             loop.run_in_executor(None, adapter.device_action, 'connect', dev_add)
             # Now we press spacebar every few seconds while connecting to ensure the keyboard is connected
             # This typically will have one connection that responds "Operation currently not available" and then disconnects
@@ -57,7 +58,6 @@ async def handle_message(reader, writer):
                 else:
                     await asyncio.sleep(2)
                 bluetooth_devices.send_message(b'\xa1\x01\x00\x00,\x00\x00\x00\x00\x00', True, False)
-                print(bluetooth_devices.connected_hosts)
                 if len(bluetooth_devices.connected_hosts) >= 1:
                     success += 1
                 else:
