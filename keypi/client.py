@@ -1,5 +1,5 @@
 
-import keymap
+from . import keymap
 
 import argparse
 import struct
