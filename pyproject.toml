@@ -25,4 +25,5 @@ dependencies = [
 keypi = "keypi.cli:keypi"
 
 [tool.setuptools]
+packages = ["keypi"]
 py-modules = ["keypi"]
